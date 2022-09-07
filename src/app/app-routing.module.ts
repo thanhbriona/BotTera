@@ -1,36 +1,63 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ChatbotTeraComponent } from './chatbot-tera/chatbot-tera.component';
-import { LoginComponent } from './login/login.component';
-import { StatisticalComponent } from './statistical/statistical.component';
-import { UserComponent } from './user/user.component';
+import { Routes, RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/reports/report-statistic', pathMatch: 'full' },
   {
-    path: '',
-    redirectTo: '/user',
-    pathMatch: 'full',
+    path: 'basic-ui',
+    loadChildren: () =>
+      import('./basic-ui/basic-ui.module').then((m) => m.BasicUiModule),
   },
   {
-    path: 'user',
-    component: UserComponent,
+    path: 'charts',
+    loadChildren: () =>
+      import('./charts/charts.module').then((m) => m.ChartsDemoModule),
   },
   {
-    path: 'statistical',
-    component: StatisticalComponent,
+    path: 'forms',
+    loadChildren: () => import('./forms/form.module').then((m) => m.FormModule),
   },
   {
-    path: 'chatbot-tera',
-    component: ChatbotTeraComponent,
+    path: 'tables',
+    loadChildren: () =>
+      import('./tables/tables.module').then((m) => m.TablesModule),
   },
   {
-    path : 'login',
-    component: LoginComponent,
-  }
+    path: 'icons',
+    loadChildren: () =>
+      import('./icons/icons.module').then((m) => m.IconsModule),
+  },
+  {
+    path: 'apps',
+    loadChildren: () => import('./apps/apps.module').then((m) => m.AppsModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./user-pages/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'reports',
+    loadChildren: () =>
+      import('./reports/reports.module').then((m) => m.ReportsModule),
+  },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./users/users.module').then((m) => m.UsersModule),
+  },
+  {
+    path: 'error-pages',
+    loadChildren: () =>
+      import('./error-pages/error-pages.module').then(
+        (m) => m.ErrorPagesModule,
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
