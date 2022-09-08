@@ -1,1 +1,72 @@
-<p>list-user works!</p>
+<div class="page-header">
+  <h3 class="page-title">Quản lý người dùng</h3>
+  <!-- <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="javascript:;">Tables</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+    </ol>
+  </nav> -->
+</div>
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div
+          class="card-title"
+          style="display: flex; justify-content: space-between"
+        >
+          <h4>Danh sách người dùng</h4>
+          <div>
+            <button
+              type="button"
+              class="btn btn-gradient-primary"
+              (click)="createUser()"
+            >
+              Thêm mới
+            </button>
+          </div>
+        </div>
+        <div class="table-responsive pt-3">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First name</th>
+                <th>Amount</th>
+                <th>Deadline</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2</td>
+                <td>Messsy Adam</td>
+                <td>$245.30</td>
+                <td>July 1, 2015</td>
+                <td>
+                  <button
+                    mat-button
+                    type="button"
+                    color="primary"
+                    style="border-radius: 50%; min-width: 50px"
+                    (click)="updateUser()"
+                  >
+                    <i class="bi bi-pencil-square" style="font-size: 20px"></i>
+                  </button>
+                  <button
+                    mat-button
+                    type="button"
+                    color="primary"
+                    style="border-radius: 50%; min-width: 50px"
+                  >
+                    <i class="bi bi-trash" style="font-size: 20px"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
